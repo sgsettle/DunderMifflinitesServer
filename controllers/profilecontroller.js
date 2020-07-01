@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
             error: err
         }))
 })
-
+  
 //GET
 router.get('/', (req, res) => {
     Profile.findAll({
