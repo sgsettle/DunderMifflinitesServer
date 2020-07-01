@@ -21,18 +21,55 @@ router.post('/', (req, res) => {
             error: err
         }))
 })
-
+  
 //GET
 router.get('/', (req, res) => {
     Profile.findOne({
         where: {
-            
+            id: req.body.id
         }
         
     })
+    .then(profile => res.status(200).json({
+        profile: profile
+    }))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
 })
 
 //UPDATE
+router.put('/:id', (req, res) => {
+    Profile.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(profile => res.status(200).json({
+        profile: profile
+    }))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
+})
 
 //DELETE
+router.delete('/:id', (req, res) => {
+    Profile.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(profile => res.status(200).json({
+        profile: profile
+    }))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
+})
+
+<<<<<<< HEAD
+//DELETE
+=======
+>>>>>>> 66fb52baa202c4a63658b0a468c341934367ee94
 module.exports = router;
