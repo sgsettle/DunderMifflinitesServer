@@ -15,6 +15,6 @@ Profile = sequelize.import('./models/profile')
 
 
 
-
+  
 
 module.exports = sequelize;
