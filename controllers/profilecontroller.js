@@ -6,7 +6,7 @@ const Profile = require('../db').import('../models/profile');
 router.post('/', (req, res) => {
     
     const profileFromRequest = {
-        userName: req.body.userName,
+        userName: req.user.userName,
         aboutMe: req.body.aboutMe,
         userPhoto: req.body.userPhoto,
         favCharacter: req.body.favCharacter,
@@ -24,13 +24,15 @@ router.post('/', (req, res) => {
 
 //GET
 router.get('/', (req, res) => {
-    Profile.findAll({
+    Profile.findOne({
         where: {
             
         }
+        
     })
 })
 
 //UPDATE
 
 //DELETE
+module.exports = router;

@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         userRole: {
-            type: DataTypes.ENUM,
+            type: DataTypes.STRING,
             allowNull: false
         }
     })
