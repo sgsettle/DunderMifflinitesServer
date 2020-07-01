@@ -6,7 +6,7 @@ const Feed = require('../db').import('../models/feed');
 router.post('/', (req, res) => {
 
     const feedFromRequest = {
-        userName: req.body.userName,
+        userName: req.user.userName,
         image: req.body.image,
         text: req.body.text,
         link: req.body.link
@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     Feed.findAll({
         where: {
-            userName: req.user.id
+            id: req.user.id
         }
     })
     .then(feed => res.status(200).json({
