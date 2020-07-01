@@ -10,7 +10,7 @@ sequelize.authenticate()
 
 User = sequelize.import('./models/user');
 Feed = sequelize.import('./models/feed');
-Comments = sequelize.import('./models/comment');
+Comments = sequelize.import('./models/comments');
 Profile = sequelize.import('./models/profile')
 
 
