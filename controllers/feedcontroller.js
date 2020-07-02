@@ -26,7 +26,8 @@ router.get('/', (req, res) => {
     Feed.findAll({
         where: {
             id: req.user.id
-        }
+        },
+        include: 'comments'
     })
     .then(feed => res.status(200).json({
         feed: feed

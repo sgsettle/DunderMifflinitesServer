@@ -10,7 +10,9 @@ router.post('/', (req, res) => {
         aboutMe: req.body.aboutMe,
         userPhoto: req.body.userPhoto,
         favCharacter: req.body.favCharacter,
-        favEpisode: req.body.favEpisode
+        favEpisode: req.body.favEpisode,
+        profile_id: req.user.id,
+        userId: req.user.id
     }
 
     Profile.create(profileFromRequest)
@@ -24,9 +26,9 @@ router.post('/', (req, res) => {
   
 //GET
 router.get('/', (req, res) => {
-    Profile.findAll({
+    Profile.findOne({
         where: {
-            id: req.body.id
+            profile_id: req.user.id
         }
     })
     .then(profile => res.status(200).json({
