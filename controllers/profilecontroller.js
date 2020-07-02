@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
         where: {
             profile_id: req.user.id
         }
+        
     })
     .then(profile => res.status(200).json({
         profile: profile
@@ -68,5 +69,4 @@ router.delete('/:id', (req, res) => {
         error: err
     }))
 })
-
 module.exports = router;
