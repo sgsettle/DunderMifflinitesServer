@@ -10,7 +10,8 @@ router.post('/signup', (req, res) => {
         lastName: req.body.lastName,
         userName: req.body.userName,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10)
+        password: bcrypt.hashSync(req.body.password, 10),
+        userRole: 'user'
     })
     .then(
         createSuccess = (user) => {
@@ -24,6 +25,23 @@ router.post('/signup', (req, res) => {
         createError = err => res.send(500, err)
     )
     .catch(err => res.status(500).json({
+        error: err
+    }))
+})
+
+//UPDATE METHOD TO HARD CODE userRole
+router.put('/:id', (req, res) => {
+    User.update(req.body.user, {
+        where: {
+            id: req.params.id
+        },
+    })
+    .then((user) => 
+    res.status(200).json({
+        user: user
+    }))
+    .catch((err) => 
+    res.status(500).json({
         error: err
     }))
 })
