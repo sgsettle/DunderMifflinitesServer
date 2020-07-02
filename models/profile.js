@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
         favEpisode: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        profile_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     })
     return Profile;

@@ -28,7 +28,7 @@ router.post('/signup', (req, res) => {
         error: err
     }))
 })
-
+  
 //UPDATE METHOD TO HARD CODE userRole
 router.put('/:id', (req, res) => {
     User.update(req.body.user, {
