@@ -10,7 +10,9 @@ router.post('/', (req, res) => {
         aboutMe: req.body.aboutMe,
         userPhoto: req.body.userPhoto,
         favCharacter: req.body.favCharacter,
-        favEpisode: req.body.favEpisode
+        favEpisode: req.body.favEpisode,
+        profile_id: req.user.id,
+        userId: req.user.id
     }
 
     Profile.create(profileFromRequest)
@@ -26,7 +28,7 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     Profile.findOne({
         where: {
-            id: req.body.id
+            profile_id: req.user.id
         }
         
     })

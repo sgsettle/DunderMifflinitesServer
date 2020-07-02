@@ -21,9 +21,5 @@ Profile.hasMany(Feed);
 
 Comments.belongsTo(Feed);
 Feed.hasMany(Comments);
-
-
-
   
-
 module.exports = sequelize;
