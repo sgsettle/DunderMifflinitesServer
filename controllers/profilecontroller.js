@@ -6,6 +6,8 @@ const Profile = require('../db').import('../models/profile');
 router.post('/', (req, res) => {
     
     const profileFromRequest = {
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
         userName: req.user.userName,
         aboutMe: req.body.aboutMe,
         userPhoto: req.body.userPhoto,
