@@ -73,4 +73,19 @@ router.post('/login', (req, res) => {
     }, err => res.status(501).send({error: 'failed to process'}))
 })
 
+//GET (for admin use)
+router.get('/', (req, res) => {
+    User.findAll({
+        where: {
+            id: req.user.id
+        }
+    })
+    .then(user => res.status(200).json({
+        user: user
+    }))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
+})
+
 module.exports = router;
