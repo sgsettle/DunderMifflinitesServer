@@ -73,6 +73,21 @@ router.post('/login', (req, res) => {
     }, err => res.status(501).send({error: 'failed to process'}))
 })
 
+//DELETE METHOD (for admin)
+router.delete('/:id', (req, res) => {
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(user => res.status(200).json({
+        user: user
+    }))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
+})
+
 //GET (for admin use)
 router.get('/', (req, res) => {
     User.findAll({
