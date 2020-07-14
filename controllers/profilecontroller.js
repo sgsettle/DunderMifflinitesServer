@@ -6,6 +6,8 @@ const Profile = require('../db').import('../models/profile');
 router.post('/', (req, res) => {
     
     const profileFromRequest = {
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
         userName: req.user.userName,
         aboutMe: req.body.aboutMe,
         userPhoto: req.body.userPhoto,
@@ -24,13 +26,27 @@ router.post('/', (req, res) => {
         }))
 })
   
-//GET
+//GET ALL (for admin use)
 router.get('/', (req, res) => {
+    Profile.findAll({
+        where: {
+            profile_id: req.user.id
+        }
+    })
+    .then(profile => res.status(200).json({
+        profile: profile
+    }))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
+})
+
+//GET INDIVIDUAL PROFILE
+router.get('/:id', (req, res) => {
     Profile.findOne({
         where: {
             profile_id: req.user.id
         }
-        
     })
     .then(profile => res.status(200).json({
         profile: profile

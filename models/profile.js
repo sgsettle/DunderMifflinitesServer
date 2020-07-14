@@ -2,6 +2,14 @@ const sequelize = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
     const Profile = sequelize.define('profile', {
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         userName: {
             type: DataTypes.STRING,
             allowNull: false
@@ -11,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         userPhoto: {
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING,
             allowNull: true
         },
         favCharacter: {
