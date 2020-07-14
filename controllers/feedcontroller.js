@@ -9,7 +9,8 @@ router.post('/', (req, res) => {
         userName: req.user.userName,
         image: req.body.image,
         text: req.body.text,
-        link: req.body.link
+        link: req.body.link,
+        //profileId: req.user.id
     }
 
     Feed.create(feedFromRequest)
@@ -24,9 +25,7 @@ router.post('/', (req, res) => {
 //GET REQUEST
 router.get('/', (req, res) => {
     Feed.findAll({
-        where: {
-            id: req.user.id
-        },
+        where: {},
         include: 'comments'
     })
     .then(feed => res.status(200).json({

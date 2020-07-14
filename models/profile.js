@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         userPhoto: {
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING,
             allowNull: true
         },
         favCharacter: {

@@ -76,8 +76,21 @@ router.post('/login', (req, res) => {
 //GET (for admin use)
 router.get('/', (req, res) => {
     User.findAll({
+        where: {}
+    })
+    .then(user => res.status(200).json({
+        user: user
+    }))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
+})
+
+//DELETE METHOD
+router.delete('/:id', (req, res) => {
+    User.destroy({
         where: {
-            id: req.user.id
+            id: req.params.id
         }
     })
     .then(user => res.status(200).json({
