@@ -13,11 +13,11 @@ Feed = sequelize.import('./models/feed');
 Comments = sequelize.import('./models/comments');
 Profile = sequelize.import('./models/profile')
 
-Profile.belongsTo(User);
 User.hasOne(Profile);
+Profile.belongsTo(User);
 
-Feed.belongsTo(Profile);
-Profile.hasMany(Feed);
+Feed.belongsTo(User);
+User.hasMany(Feed);
 
 Comments.belongsTo(Feed);
 Feed.hasMany(Comments);

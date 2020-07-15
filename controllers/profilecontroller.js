@@ -46,7 +46,8 @@ router.get('/:id', (req, res) => {
     Profile.findOne({
         where: {
             profile_id: req.user.id
-        }
+        },
+        include: ['feed']
     })
     .then(profile => res.status(200).json({
         profile: profile
@@ -57,10 +58,10 @@ router.get('/:id', (req, res) => {
 })
 
 //UPDATE
-router.put('/:id', (req, res) => {
+router.put('/', (req, res) => {
     Profile.update(req.body, {
         where: {
-            id: req.params.id
+            profile_id: req.user.id
         }
     })
     .then(profile => res.status(200).json({
