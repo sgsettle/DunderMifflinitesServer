@@ -36,6 +36,20 @@ router.get('/', (req, res) => {
     }))
 })
 
+// GET INDIVIDUAL POST
+router.get('/:id', (req, res) => {
+    Feed.findAll({
+        where: { userId: req.user.id },
+        include: 'comments'
+    })
+    .then(feed => res.status(200).json({
+        feed: feed
+    }))
+    .catch(err => res.status(500).json({
+        error: err
+    }))
+})
+
 //UPDATE(PUT)
 router.put('/:id', (req, res) => {
     Feed.update(req.body, {
