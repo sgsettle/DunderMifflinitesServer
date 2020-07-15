@@ -37,9 +37,9 @@ router.get('/', (req, res) => {
 })
 
 // GET INDIVIDUAL POST
-router.get('/:id', (req, res) => {
+router.get('/:userName', (req, res) => {
     Feed.findAll({
-        where: { userId: req.user.id },
+        where: { userName: req.user.userName },
         include: 'comments'
     })
     .then(feed => res.status(200).json({

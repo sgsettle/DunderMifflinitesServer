@@ -1,5 +1,3 @@
-const comments = require('../models/comments');
-
 const router = require('express').Router();
 
 const Comments = require('../db').import('../models/comments');
@@ -24,9 +22,7 @@ router.post('/', (req, res) => {
 //GET
 router.get('/', (req, res) => {
     Comments.findAll({
-        where: {
-            id: req.user.id
-        }
+        where: {}
     })
     .then(comments => res.status(200).json({
         comments: comments
