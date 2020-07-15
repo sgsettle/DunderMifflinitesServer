@@ -26,5 +26,5 @@ http://localhost:3000/profile/ -- 'POST' -- create and post a user profile
 http://localhost:3000/profile -- 'GET' -- get all profiles
 http://localhost:3000/profile/:id -- 'GET' -- get profiles by user id
 http://localhost:3000/profile/:id -- 'UPDATE' -- update a user profile by user id
-http://localhost:3000/profile/:id -- 'DELETE -- delete a user profile by user id
+http://localhost:3000/profile/:id -- 'DELETE -- delete  user profile by user id
 
