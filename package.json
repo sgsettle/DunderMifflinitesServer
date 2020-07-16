@@ -5,14 +5,14 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./node_modules/http-server/bin/http-server"
+    "start": "node app.js"
   },
   "author": "Brad Dozier, Kate Lockhart, and Slayde Settle",
   "license": "MIT",
   "dependencies": {
-    "@types/jest": "^26.0.3",
-    "@types/node": "^14.0.14",
-    "@types/react": "^16.9.41",
+    "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.23",
+    "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "bcryptjs": "^2.4.3",
     "dotenv": "^5.0.1",
